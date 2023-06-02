@@ -1,0 +1,59 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class ProgramaAutobuses {
+    public static void main(String[] args) {
+        RutaAutobus ruta1 = new RutaAutobus(1, "B11");
+        ruta1.agregarParada(new ParadaSITP("RICAURTE"));
+        ruta1.agregarParada(new ParadaSITP("SENA"));
+        ruta1.agregarParada(new ParadaSITP("COMUNEROS"));
+
+        RutaAutobus ruta2 = new RutaAutobus(2, "G43");
+        ruta2.agregarParada(new ParadaSITP("RECINTO FERIAL"));
+        ruta2.agregarParada(new ParadaSITP("PORTAL EL DORADO"));
+        ruta2.agregarParada(new ParadaSITP("UNIVERSIDAD NACIONAL"));
+
+        List<RutaAutobus> rutasAutobus = new ArrayList<>();
+        rutasSITP.add(ruta1);
+        rutasSITP.add(ruta2);
+
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
+        do {
+            System.out.println("Menú:");
+            System.out.println("1. Consultar paradas de una ruta de SITP");
+            System.out.println("2. Consultar rutas de SITP que funcionan en días feriados");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opción: ");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese el número de ruta del SITP: ");
+                    int numeroRuta = scanner.nextInt();
+                    RutaAutobus rutaSeleccionada = buscarRuta(rutasAutobus, numeroRuta);
+                    if (rutaSeleccionada != null) {
+                        System.out.println("Paradas de la ruta " + rutaSeleccionada.getNombre() + ":");
+                        rutaSeleccionada.mostrarParadas();
+                    } else {
+                        System.out.println("La ruta de este SITP no existe.");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Rutas de autobús que funcionan en días feriados:");
+                    mostrarRutasFeriados(rutasAutobus);
+                    break;
+                case 0:
+                    System.out.println("¡Hasta luego!");
+                    break;
+                default:
+                    System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+                    break;
+            }
+            System.out.println();
+        } while (opcion != 0);
+    }
+    
+
+  
