@@ -1,20 +1,20 @@
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List;           #Importamos las clases que vamos a usar
 import java.util.Scanner;
 
 public class ProgramaAutobuses {
     public static void main(String[] args) {
-        RutaAutobus ruta1 = new RutaAutobus(1, "B11");
+        RutaSITP ruta1 = new RutaAutobus(1, "B11");
         ruta1.agregarParada(new ParadaSITP("RICAURTE"));
         ruta1.agregarParada(new ParadaSITP("SENA"));
         ruta1.agregarParada(new ParadaSITP("COMUNEROS"));
 
-        RutaAutobus ruta2 = new RutaAutobus(2, "G43");
+        RutaSITP ruta2 = new RutaAutobus(2, "G43");
         ruta2.agregarParada(new ParadaSITP("RECINTO FERIAL"));
         ruta2.agregarParada(new ParadaSITP("PORTAL EL DORADO"));
         ruta2.agregarParada(new ParadaSITP("UNIVERSIDAD NACIONAL"));
 
-        List<RutaAutobus> rutasAutobus = new ArrayList<>();
+        List<RutaSITP> rutasAutobus = new ArrayList<>();
         rutasSITP.add(ruta1);
         rutasSITP.add(ruta2);
 
@@ -42,6 +42,7 @@ public class ProgramaAutobuses {
                     break;
                 case 2:
                     System.out.println("Rutas de autobús que funcionan en días feriados:");
+                    System.out.println(Las rutas que sirven son estas: G43");
                     mostrarRutasFeriados(rutasAutobus);
                     break;
                 case 0:
